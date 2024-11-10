@@ -1,0 +1,4 @@
+elt-pactravel/
+.env
+**/__pycache__/
+temp/

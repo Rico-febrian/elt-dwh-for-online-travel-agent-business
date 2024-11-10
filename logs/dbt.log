@@ -1,0 +1,45 @@
+[0m18:18:50.868921 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ff76b9be3b0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ff76b923df0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ff76c7c3940>]}
+
+
+============================== 18:18:50.872032 | 9f9e863c-f08d-44b6-952b-a2717e45640b ==============================
+[0m18:18:50.872032 [info ] [MainThread]: Running with dbt=1.9.0-b4
+[0m18:18:50.872557 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/home/ricofebrian/data-warehouse-labs/exercise/exercise-3', 'version_check': 'True', 'warn_error': 'None', 'log_path': 'logs', 'debug': 'False', 'fail_fast': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'None', 'quiet': 'False', 'no_print': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'introspect': 'True', 'static_parser': 'True', 'invocation_command': 'dbt init', 'target_path': 'None', 'log_format': 'default', 'send_anonymous_usage_stats': 'True'}
+[0m18:18:59.320404 [debug] [MainThread]: Starter project path: /home/ricofebrian/data-warehouse-labs/exercise/exercise-3/elt-pactravel/lib/python3.10/site-packages/dbt/include/starter_project
+[0m18:18:59.332369 [info ] [MainThread]: 
+Your new dbt project "pactravel_dbt" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m18:18:59.332928 [info ] [MainThread]: Setting up your profile.
+[0m18:19:19.930821 [debug] [MainThread]: Resource report: {"command_name": "init", "command_success": true, "command_wall_clock_time": 29.114508, "process_user_time": 1.146036, "process_kernel_time": 0.099655, "process_mem_max_rss": "86128", "process_in_blocks": "28080", "process_out_blocks": "72"}
+[0m18:19:19.931559 [debug] [MainThread]: Command `dbt init` succeeded at 18:19:19.931439 after 29.12 seconds
+[0m18:19:19.932041 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ff76b9be3b0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ff76b9223e0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ff76c7c0fd0>]}
+[0m18:19:19.932464 [debug] [MainThread]: Flushing usage events
+[0m18:19:21.564010 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m23:44:30.783574 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f3d1b186740>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f3d1be2d3f0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f3d1be2ceb0>]}
+
+
+============================== 23:44:30.790542 | 85a7a999-a7c0-4b8e-807b-9d90d09434d7 ==============================
+[0m23:44:30.790542 [info ] [MainThread]: Running with dbt=1.9.0-b4
+[0m23:44:30.791352 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/home/ricofebrian/.dbt', 'version_check': 'True', 'warn_error': 'None', 'log_path': 'logs', 'fail_fast': 'False', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'None', 'quiet': 'False', 'no_print': 'None', 'log_format': 'default', 'invocation_command': 'dbt docs generate', 'introspect': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'target_path': 'None', 'static_parser': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m23:44:30.792425 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path /home/ricofebrian/data-warehouse-labs/exercise/exercise-3/dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m23:44:30.796011 [debug] [MainThread]: Resource report: {"command_name": "generate", "command_wall_clock_time": 0.07043464, "process_user_time": 1.043773, "process_kernel_time": 0.129229, "process_mem_max_rss": "85820", "process_in_blocks": "544", "process_out_blocks": "16", "command_success": false}
+[0m23:44:30.797012 [debug] [MainThread]: Command `dbt docs generate` failed at 23:44:30.796896 after 0.07 seconds
+[0m23:44:30.797854 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f3d1b186740>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f3d1be74280>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f3d1be775e0>]}
+[0m23:44:30.798688 [debug] [MainThread]: Flushing usage events
+[0m23:44:32.130424 [debug] [MainThread]: An error was encountered while trying to flush usage events

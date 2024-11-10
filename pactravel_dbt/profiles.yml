@@ -1,0 +1,12 @@
+pactravel_dbt:
+  outputs:
+    dev:
+      dbname: pactravel-dwh
+      host: localhost
+      pass: Learning123
+      port: 5434
+      schema: pactravel_final
+      threads: 1
+      type: postgres
+      user: postgres
+  target: dev
