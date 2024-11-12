@@ -179,7 +179,7 @@ Set up a Sentry project to receive an e-mail notifications in case of any errors
 
 **These queries are used to set up the schemas, tables, and their constraints _based on the data warehouse design_.**
 
-You can view the complete data warehouse design for this project in my Medium article: [Data Warehouse Design]()
+You can view the complete data warehouse design for this project in my Medium article: [Data Warehouse Design](https://medium.com/@ricofebrian731/learning-data-engineering-designing-a-data-warehouse-and-implementing-an-elt-with-dbt-and-luigi-404f357ef36c)
 
   - Source database
     - [Populated data source](https://github.com/Rico-febrian/elt-dwh-for-online-travel-booking-business/blob/main/helper/src_data/init.sql)
@@ -456,7 +456,7 @@ You can easily check and review the log files and summaries created in each task
 
 - Error log
 
-![Error log]()
+![Error log](https://github.com/Rico-febrian/elt-dwh-for-online-travel-booking-business/blob/main/assets/error_log.png)
 
 - Error task summary
 
@@ -520,7 +520,7 @@ Since Luigi doesn't have a built-in scheduler, you can automate the pipeline usi
 # Final Result
 
 ## - Data Warehouse Lineage Graph
-![DWH Lineage Graph]()
+![DWH Lineage Graph](https://github.com/Rico-febrian/elt-dwh-for-online-travel-booking-business/blob/main/assets/dbt_lineage_graph.png)
 
 ## - Testing Queries
 
@@ -537,7 +537,7 @@ Since Luigi doesn't have a built-in scheduler, you can automate the pipeline usi
 
 ## - Luigi DAG Graph
 
-![Luigi DAG Graph]()
+![Luigi DAG Graph](https://github.com/Rico-febrian/elt-dwh-for-online-travel-booking-business/blob/main/assets/luigi_dag_graph.png)
 
 ## - Pipeline Summary
 
