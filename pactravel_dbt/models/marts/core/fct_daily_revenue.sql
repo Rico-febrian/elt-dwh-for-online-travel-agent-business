@@ -49,7 +49,7 @@ fct_daily_revenue as (
 
     select 
         dd.date_actual as booking_date,
-        dr.daily_revenue,
+        dr.daily_revenue as total_revenue,
         dr.flight_daily_revenue,
         dr.hotel_daily_revenue,
         dr.total_flight_booking,

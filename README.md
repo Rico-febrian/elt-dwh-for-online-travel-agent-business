@@ -250,7 +250,7 @@ You can view the complete data warehouse design for this project in my Medium ar
           mkdir staging
           ```
 
-        - Create the source and all staging models configurations
+        - Create Jinja configuration files for the source and all staging models
             - First, set up the source configuration
             - Next, create all the staging models
            
@@ -279,7 +279,7 @@ You can view the complete data warehouse design for this project in my Medium ar
           mkdir marts; cd marts; mkdir core
           ```
 
-        - Create the core and all marts models configurations
+        - Create Jinja configuration files for the core and all marts models
             - First, create all the marts models
             - Next, set up the core models configuration
      

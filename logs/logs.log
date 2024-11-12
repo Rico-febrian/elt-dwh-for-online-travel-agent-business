@@ -2474,3 +2474,331 @@ This progress looks :) because there were no failed tasks or missing dependencie
 
 ===== Luigi Execution Summary =====
 
+2024-11-12 22:43:03,797 - INFO - ==================================STARTING EXTRACT DATA=======================================
+2024-11-12 22:43:03,861 - INFO - EXTRACT 'public.aircrafts' - SUCCESS.
+2024-11-12 22:43:03,873 - INFO - EXTRACT 'public.airlines' - SUCCESS.
+2024-11-12 22:43:03,879 - INFO - EXTRACT 'public.airports' - SUCCESS.
+2024-11-12 22:43:03,890 - INFO - EXTRACT 'public.customers' - SUCCESS.
+2024-11-12 22:43:03,907 - INFO - EXTRACT 'public.hotel' - SUCCESS.
+2024-11-12 22:43:03,978 - INFO - EXTRACT 'public.flight_bookings' - SUCCESS.
+2024-11-12 22:43:03,985 - INFO - EXTRACT 'public.hotel_bookings' - SUCCESS.
+2024-11-12 22:43:03,985 - INFO - EXTRACT ALL TABLE FROM SOURCE DATABASE - SUCCESS!
+2024-11-12 22:43:03,988 - INFO - ==================================ENDING EXTRACT DATA=======================================
+2024-11-12 22:43:03,988 - INFO - [pid 46073] Worker Worker(salt=4202940784, workers=1, host=LAPTOP-E1BGNT67, username=ricofebrian, pid=46073) done      Extract()
+2024-11-12 22:43:03,989 - DEBUG - 1 running tasks, waiting for next task to finish
+2024-11-12 22:43:03,993 - INFO - Informed scheduler that task   Extract__99914b932b   has status   DONE
+2024-11-12 22:43:03,993 - DEBUG - Asking scheduler for work...
+2024-11-12 22:43:03,995 - DEBUG - Pending tasks: 2
+2024-11-12 22:43:03,995 - INFO - [pid 46073] Worker Worker(salt=4202940784, workers=1, host=LAPTOP-E1BGNT67, username=ricofebrian, pid=46073) running   Load()
+2024-11-12 22:43:03,999 - INFO - Read Load Query - SUCCESS!
+2024-11-12 22:43:04,026 - INFO - Read Extracted Data - SUCCESS!
+2024-11-12 22:43:04,027 - INFO - Connect to DWH - SUCCESS!
+2024-11-12 22:43:04,155 - INFO - Truncate public Schema in DWH - SUCCESS!
+2024-11-12 22:43:04,155 - INFO - ==================================STARTING LOAD DATA=======================================
+2024-11-12 22:43:04,174 - INFO - Load aircrafts table - SUCCESS!
+2024-11-12 22:43:04,205 - INFO - Load airlines table - SUCCESS!
+2024-11-12 22:43:04,216 - INFO - Load airports table - SUCCESS!
+2024-11-12 22:43:04,246 - INFO - Load customers table - SUCCESS!
+2024-11-12 22:43:04,291 - INFO - Load hotel table - SUCCESS!
+2024-11-12 22:43:04,879 - INFO - Load flight_bookings table - SUCCESS!
+2024-11-12 22:43:04,895 - INFO - Load hotel_bookings table - SUCCESS!
+2024-11-12 22:43:04,895 - INFO - LOAD All Tables To Pactravel DWH - SUCCESS!
+2024-11-12 22:43:05,127 - INFO - LOAD All Tables To Pactravel Staging - SUCCESS
+2024-11-12 22:43:05,129 - INFO - ==================================ENDING LOAD DATA=======================================
+2024-11-12 22:43:05,129 - INFO - [pid 46073] Worker Worker(salt=4202940784, workers=1, host=LAPTOP-E1BGNT67, username=ricofebrian, pid=46073) done      Load()
+2024-11-12 22:43:05,130 - DEBUG - 1 running tasks, waiting for next task to finish
+2024-11-12 22:43:05,133 - INFO - Informed scheduler that task   Load__99914b932b   has status   DONE
+2024-11-12 22:43:05,133 - DEBUG - Asking scheduler for work...
+2024-11-12 22:43:05,135 - DEBUG - Pending tasks: 1
+2024-11-12 22:43:05,135 - INFO - [pid 46073] Worker Worker(salt=4202940784, workers=1, host=LAPTOP-E1BGNT67, username=ricofebrian, pid=46073) running   Transform()
+2024-11-12 22:43:05,135 - INFO - ==================================STARTING TRANSFROM DATA=======================================
+[0m15:43:06  Running with dbt=1.9.0-b4
+[0m15:43:08  Installing dbt-labs/dbt_utils
+[0m15:43:08  Installed from version 1.1.1
+[0m15:43:08  Updated version available: 1.3.0
+[0m15:43:08  Installing calogica/dbt_date
+[0m15:43:09  Installed from version 0.10.0
+[0m15:43:09  Updated version available: 0.10.1
+[0m15:43:09  Installing Snowflake-Labs/dbt_constraints
+[0m15:43:11  Installed from version 0.6.3
+[0m15:43:11  Updated version available: 1.0.4
+[0m15:43:11  
+[0m15:43:11  Updates available for packages: ['dbt-labs/dbt_utils', 'calogica/dbt_date', 'Snowflake-Labs/dbt_constraints']                 
+Update your versions in packages.yml, then run dbt deps
+[0m15:43:13  Running with dbt=1.9.0-b4
+[0m15:43:13  Registered adapter: postgres=1.8.2
+[0m15:43:14  Found 15 models, 3 snapshots, 1 seed, 1 operation, 47 data tests, 7 sources, 751 macros
+[0m15:43:14  
+[0m15:43:14  Concurrency: 1 threads (target='dev')
+[0m15:43:14  
+[0m15:43:14  1 of 1 START seed file pactravel_final.dim_date ................................ [RUN]
+[0m15:45:29  1 of 1 OK loaded seed file pactravel_final.dim_date ............................ [[32mINSERT 29220[0m in 134.82s]
+[0m15:45:29  
+[0m15:45:29  Running dbt Constraints
+[0m15:45:29  Finished dbt Constraints
+[0m15:45:29  1 of 1 START hook: dbt_constraints.on-run-end.0 ................................ [RUN]
+[0m15:45:29  1 of 1 OK hook: dbt_constraints.on-run-end.0 ................................... [[32mOK[0m in 0.06s]
+[0m15:45:29  
+[0m15:45:29  Finished running 1 project hook, 1 seed in 0 hours 2 minutes and 15.07 seconds (135.07s).
+[0m15:45:30  
+[0m15:45:30  [32mCompleted successfully[0m
+[0m15:45:30  
+[0m15:45:30  Done. PASS=2 WARN=0 ERROR=0 SKIP=0 TOTAL=2
+[0m15:45:32  Running with dbt=1.9.0-b4
+[0m15:45:32  Registered adapter: postgres=1.8.2
+[0m15:45:33  Found 15 models, 3 snapshots, 1 seed, 1 operation, 47 data tests, 7 sources, 751 macros
+[0m15:45:33  
+[0m15:45:33  Concurrency: 1 threads (target='dev')
+[0m15:45:33  
+[0m15:45:33  1 of 15 START sql view model pactravel_final.stg_pactravel__aircrafts .......... [RUN]
+[0m15:45:33  1 of 15 OK created sql view model pactravel_final.stg_pactravel__aircrafts ..... [[32mCREATE VIEW[0m in 0.13s]
+[0m15:45:33  2 of 15 START sql view model pactravel_final.stg_pactravel__airlines ........... [RUN]
+[0m15:45:33  2 of 15 OK created sql view model pactravel_final.stg_pactravel__airlines ...... [[32mCREATE VIEW[0m in 0.05s]
+[0m15:45:33  3 of 15 START sql view model pactravel_final.stg_pactravel__airports ........... [RUN]
+[0m15:45:33  3 of 15 OK created sql view model pactravel_final.stg_pactravel__airports ...... [[32mCREATE VIEW[0m in 0.06s]
+[0m15:45:33  4 of 15 START sql view model pactravel_final.stg_pactravel__customers .......... [RUN]
+[0m15:45:33  4 of 15 OK created sql view model pactravel_final.stg_pactravel__customers ..... [[32mCREATE VIEW[0m in 0.05s]
+[0m15:45:33  5 of 15 START sql view model pactravel_final.stg_pactravel__flight_bookings .... [RUN]
+[0m15:45:33  5 of 15 OK created sql view model pactravel_final.stg_pactravel__flight_bookings  [[32mCREATE VIEW[0m in 0.05s]
+[0m15:45:33  6 of 15 START sql view model pactravel_final.stg_pactravel__hotel .............. [RUN]
+[0m15:45:33  6 of 15 OK created sql view model pactravel_final.stg_pactravel__hotel ......... [[32mCREATE VIEW[0m in 0.06s]
+[0m15:45:33  7 of 15 START sql view model pactravel_final.stg_pactravel__hotel_bookings ..... [RUN]
+[0m15:45:33  7 of 15 OK created sql view model pactravel_final.stg_pactravel__hotel_bookings  [[32mCREATE VIEW[0m in 0.06s]
+[0m15:45:33  8 of 15 START sql table model pactravel_final.dim_aircrafts .................... [RUN]
+[0m15:45:34  8 of 15 OK created sql table model pactravel_final.dim_aircrafts ............... [[32mSELECT 246[0m in 0.11s]
+[0m15:45:34  9 of 15 START sql table model pactravel_final.dim_airlines ..................... [RUN]
+[0m15:45:34  9 of 15 OK created sql table model pactravel_final.dim_airlines ................ [[32mSELECT 1251[0m in 0.08s]
+[0m15:45:34  10 of 15 START sql table model pactravel_final.dim_airports .................... [RUN]
+[0m15:45:34  10 of 15 OK created sql table model pactravel_final.dim_airports ............... [[32mSELECT 105[0m in 0.07s]
+[0m15:45:34  11 of 15 START sql table model pactravel_final.dim_customers ................... [RUN]
+[0m15:45:34  11 of 15 OK created sql table model pactravel_final.dim_customers .............. [[32mSELECT 1000[0m in 0.12s]
+[0m15:45:34  12 of 15 START sql table model pactravel_final.dim_hotel ....................... [RUN]
+[0m15:45:34  12 of 15 OK created sql table model pactravel_final.dim_hotel .................. [[32mSELECT 1470[0m in 0.08s]
+[0m15:45:34  13 of 15 START sql table model pactravel_final.fct_daily_revenue ............... [RUN]
+[0m15:45:34  13 of 15 OK created sql table model pactravel_final.fct_daily_revenue .......... [[32mSELECT 2370[0m in 0.08s]
+[0m15:45:34  14 of 15 START sql table model pactravel_final.fct_flight_bookings ............. [RUN]
+[0m15:45:35  14 of 15 OK created sql table model pactravel_final.fct_flight_bookings ........ [[32mSELECT 8190[0m in 1.25s]
+[0m15:45:35  15 of 15 START sql table model pactravel_final.fct_hotel_bookings .............. [RUN]
+[0m15:45:36  15 of 15 OK created sql table model pactravel_final.fct_hotel_bookings ......... [[32mSELECT 217[0m in 0.69s]
+[0m15:45:36  
+[0m15:45:36  Running dbt Constraints
+[0m15:45:36  Finished dbt Constraints
+[0m15:45:36  1 of 1 START hook: dbt_constraints.on-run-end.0 ................................ [RUN]
+[0m15:45:36  1 of 1 OK hook: dbt_constraints.on-run-end.0 ................................... [[32mOK[0m in 0.06s]
+[0m15:45:36  
+[0m15:45:36  Finished running 1 project hook, 8 table models, 7 view models in 0 hours 0 minutes and 3.26 seconds (3.26s).
+[0m15:45:36  
+[0m15:45:36  [32mCompleted successfully[0m
+[0m15:45:36  
+[0m15:45:36  Done. PASS=16 WARN=0 ERROR=0 SKIP=0 TOTAL=16
+[0m15:45:39  Running with dbt=1.9.0-b4
+[0m15:45:39  Registered adapter: postgres=1.8.2
+[0m15:45:40  Found 15 models, 3 snapshots, 1 seed, 1 operation, 47 data tests, 7 sources, 751 macros
+[0m15:45:40  
+[0m15:45:40  Concurrency: 1 threads (target='dev')
+[0m15:45:40  
+[0m15:45:40  1 of 3 START snapshot pactravel_snapshots.airlines_snapshot .................... [RUN]
+[0m15:45:40  1 of 3 OK snapshotted pactravel_snapshots.airlines_snapshot .................... [[32mINSERT 0 1251[0m in 0.22s]
+[0m15:45:40  2 of 3 START snapshot pactravel_snapshots.customers_snapshot ................... [RUN]
+[0m15:45:40  2 of 3 OK snapshotted pactravel_snapshots.customers_snapshot ................... [[32mINSERT 0 1000[0m in 0.10s]
+[0m15:45:40  3 of 3 START snapshot pactravel_snapshots.hotel_snapshot ....................... [RUN]
+[0m15:45:40  3 of 3 OK snapshotted pactravel_snapshots.hotel_snapshot ....................... [[32mINSERT 0 1470[0m in 0.12s]
+[0m15:45:40  
+[0m15:45:40  Running dbt Constraints
+[0m15:45:40  Finished dbt Constraints
+[0m15:45:40  1 of 1 START hook: dbt_constraints.on-run-end.0 ................................ [RUN]
+[0m15:45:40  1 of 1 OK hook: dbt_constraints.on-run-end.0 ................................... [[32mOK[0m in 0.05s]
+[0m15:45:40  
+[0m15:45:40  Finished running 1 project hook, 3 snapshots in 0 hours 0 minutes and 0.70 seconds (0.70s).
+[0m15:45:40  
+[0m15:45:40  [32mCompleted successfully[0m
+[0m15:45:40  
+[0m15:45:40  Done. PASS=4 WARN=0 ERROR=0 SKIP=0 TOTAL=4
+[0m15:45:43  Running with dbt=1.9.0-b4
+[0m15:45:43  Registered adapter: postgres=1.8.2
+[0m15:45:44  Found 15 models, 3 snapshots, 1 seed, 1 operation, 47 data tests, 7 sources, 751 macros
+[0m15:45:44  
+[0m15:45:44  Concurrency: 1 threads (target='dev')
+[0m15:45:44  
+[0m15:45:44  1 of 47 START test dbt_constraints_foreign_key_fct_daily_revenue_booking_date__date_actual__ref_dim_date_  [RUN]
+[0m15:45:44  1 of 47 PASS dbt_constraints_foreign_key_fct_daily_revenue_booking_date__date_actual__ref_dim_date_  [[32mPASS[0m in 0.08s]
+[0m15:45:44  2 of 47 START test dbt_constraints_foreign_key_fct_flight_bookings_aircraft_id__nk_aircraft_id__ref_dim_aircrafts_  [RUN]
+[0m15:45:44  2 of 47 PASS dbt_constraints_foreign_key_fct_flight_bookings_aircraft_id__nk_aircraft_id__ref_dim_aircrafts_  [[32mPASS[0m in 0.03s]
+[0m15:45:44  3 of 47 START test dbt_constraints_foreign_key_fct_flight_bookings_airline_id__nk_airline_id__ref_dim_airlines_  [RUN]
+[0m15:45:44  3 of 47 PASS dbt_constraints_foreign_key_fct_flight_bookings_airline_id__nk_airline_id__ref_dim_airlines_  [[32mPASS[0m in 0.03s]
+[0m15:45:44  4 of 47 START test dbt_constraints_foreign_key_fct_flight_bookings_arrival_airport__airport_name__ref_dim_airports_  [RUN]
+[0m15:45:44  4 of 47 PASS dbt_constraints_foreign_key_fct_flight_bookings_arrival_airport__airport_name__ref_dim_airports_  [[32mPASS[0m in 0.03s]
+[0m15:45:44  5 of 47 START test dbt_constraints_foreign_key_fct_flight_bookings_departure_airport__airport_name__ref_dim_airports_  [RUN]
+[0m15:45:44  5 of 47 PASS dbt_constraints_foreign_key_fct_flight_bookings_departure_airport__airport_name__ref_dim_airports_  [[32mPASS[0m in 0.03s]
+[0m15:45:44  6 of 47 START test dbt_constraints_foreign_key_fct_flight_bookings_departure_date__date_actual__ref_dim_date_  [RUN]
+[0m15:45:44  6 of 47 PASS dbt_constraints_foreign_key_fct_flight_bookings_departure_date__date_actual__ref_dim_date_  [[32mPASS[0m in 0.03s]
+[0m15:45:44  7 of 47 START test dbt_constraints_foreign_key_fct_flight_bookings_flight_booking_date__date_actual__ref_dim_date_  [RUN]
+[0m15:45:44  7 of 47 PASS dbt_constraints_foreign_key_fct_flight_bookings_flight_booking_date__date_actual__ref_dim_date_  [[32mPASS[0m in 0.03s]
+[0m15:45:44  8 of 47 START test dbt_constraints_foreign_key_fct_hotel_bookings_check_in_date__date_actual__ref_dim_date_  [RUN]
+[0m15:45:44  8 of 47 PASS dbt_constraints_foreign_key_fct_hotel_bookings_check_in_date__date_actual__ref_dim_date_  [[32mPASS[0m in 0.03s]
+[0m15:45:44  9 of 47 START test dbt_constraints_foreign_key_fct_hotel_bookings_check_out_date__date_actual__ref_dim_date_  [RUN]
+[0m15:45:44  9 of 47 PASS dbt_constraints_foreign_key_fct_hotel_bookings_check_out_date__date_actual__ref_dim_date_  [[32mPASS[0m in 0.03s]
+[0m15:45:44  10 of 47 START test dbt_constraints_foreign_key_fct_hotel_bookings_hotel_booking_date__date_actual__ref_dim_date_  [RUN]
+[0m15:45:44  10 of 47 PASS dbt_constraints_foreign_key_fct_hotel_bookings_hotel_booking_date__date_actual__ref_dim_date_  [[32mPASS[0m in 0.04s]
+[0m15:45:44  11 of 47 START test dbt_constraints_foreign_key_fct_hotel_bookings_hotel_id__nk_hotel_id__ref_dim_hotel_  [RUN]
+[0m15:45:44  11 of 47 PASS dbt_constraints_foreign_key_fct_hotel_bookings_hotel_id__nk_hotel_id__ref_dim_hotel_  [[32mPASS[0m in 0.03s]
+[0m15:45:44  12 of 47 START test dbt_constraints_primary_key_dim_aircrafts_sk_aircraft_id ... [RUN]
+[0m15:45:44  12 of 47 PASS dbt_constraints_primary_key_dim_aircrafts_sk_aircraft_id ......... [[32mPASS[0m in 0.03s]
+[0m15:45:44  13 of 47 START test dbt_constraints_primary_key_dim_airlines_sk_airline_id ..... [RUN]
+[0m15:45:44  13 of 47 PASS dbt_constraints_primary_key_dim_airlines_sk_airline_id ........... [[32mPASS[0m in 0.03s]
+[0m15:45:44  14 of 47 START test dbt_constraints_primary_key_dim_airports_sk_airport_id ..... [RUN]
+[0m15:45:44  14 of 47 PASS dbt_constraints_primary_key_dim_airports_sk_airport_id ........... [[32mPASS[0m in 0.03s]
+[0m15:45:44  15 of 47 START test dbt_constraints_primary_key_dim_customers_sk_customer_id ... [RUN]
+[0m15:45:44  15 of 47 PASS dbt_constraints_primary_key_dim_customers_sk_customer_id ......... [[32mPASS[0m in 0.03s]
+[0m15:45:44  16 of 47 START test dbt_constraints_primary_key_dim_date_date_id ............... [RUN]
+[0m15:45:44  16 of 47 PASS dbt_constraints_primary_key_dim_date_date_id ..................... [[32mPASS[0m in 0.04s]
+[0m15:45:44  17 of 47 START test dbt_constraints_primary_key_dim_hotel_sk_hotel_id .......... [RUN]
+[0m15:45:44  17 of 47 PASS dbt_constraints_primary_key_dim_hotel_sk_hotel_id ................ [[32mPASS[0m in 0.03s]
+[0m15:45:44  18 of 47 START test dbt_constraints_primary_key_fct_flight_bookings_sk_flight_booking_id  [RUN]
+[0m15:45:44  18 of 47 PASS dbt_constraints_primary_key_fct_flight_bookings_sk_flight_booking_id  [[32mPASS[0m in 0.03s]
+[0m15:45:44  19 of 47 START test dbt_constraints_primary_key_fct_hotel_bookings_sk_hotel_booking_id  [RUN]
+[0m15:45:44  19 of 47 PASS dbt_constraints_primary_key_fct_hotel_bookings_sk_hotel_booking_id  [[32mPASS[0m in 0.03s]
+[0m15:45:44  20 of 47 START test not_null_dim_aircrafts_nk_aircraft_id ...................... [RUN]
+[0m15:45:44  20 of 47 PASS not_null_dim_aircrafts_nk_aircraft_id ............................ [[32mPASS[0m in 0.03s]
+[0m15:45:44  21 of 47 START test not_null_dim_aircrafts_sk_aircraft_id ...................... [RUN]
+[0m15:45:44  21 of 47 PASS not_null_dim_aircrafts_sk_aircraft_id ............................ [[32mPASS[0m in 0.03s]
+[0m15:45:44  22 of 47 START test not_null_dim_airlines_nk_airline_id ........................ [RUN]
+[0m15:45:45  22 of 47 PASS not_null_dim_airlines_nk_airline_id .............................. [[32mPASS[0m in 0.03s]
+[0m15:45:45  23 of 47 START test not_null_dim_airlines_sk_airline_id ........................ [RUN]
+[0m15:45:45  23 of 47 PASS not_null_dim_airlines_sk_airline_id .............................. [[32mPASS[0m in 0.02s]
+[0m15:45:45  24 of 47 START test not_null_dim_airports_nk_airport_id ........................ [RUN]
+[0m15:45:45  24 of 47 PASS not_null_dim_airports_nk_airport_id .............................. [[32mPASS[0m in 0.03s]
+[0m15:45:45  25 of 47 START test not_null_dim_airports_sk_airport_id ........................ [RUN]
+[0m15:45:45  25 of 47 PASS not_null_dim_airports_sk_airport_id .............................. [[32mPASS[0m in 0.02s]
+[0m15:45:45  26 of 47 START test not_null_dim_customers_nk_customer_id ...................... [RUN]
+[0m15:45:45  26 of 47 PASS not_null_dim_customers_nk_customer_id ............................ [[32mPASS[0m in 0.03s]
+[0m15:45:45  27 of 47 START test not_null_dim_customers_sk_customer_id ...................... [RUN]
+[0m15:45:45  27 of 47 PASS not_null_dim_customers_sk_customer_id ............................ [[32mPASS[0m in 0.02s]
+[0m15:45:45  28 of 47 START test not_null_dim_date_date_id .................................. [RUN]
+[0m15:45:45  28 of 47 PASS not_null_dim_date_date_id ........................................ [[32mPASS[0m in 0.03s]
+[0m15:45:45  29 of 47 START test not_null_dim_hotel_nk_hotel_id ............................. [RUN]
+[0m15:45:45  29 of 47 PASS not_null_dim_hotel_nk_hotel_id ................................... [[32mPASS[0m in 0.03s]
+[0m15:45:45  30 of 47 START test not_null_dim_hotel_sk_hotel_id ............................. [RUN]
+[0m15:45:45  30 of 47 PASS not_null_dim_hotel_sk_hotel_id ................................... [[32mPASS[0m in 0.03s]
+[0m15:45:45  31 of 47 START test not_null_fct_daily_revenue_booking_date .................... [RUN]
+[0m15:45:45  31 of 47 PASS not_null_fct_daily_revenue_booking_date .......................... [[32mPASS[0m in 0.03s]
+[0m15:45:45  32 of 47 START test not_null_fct_flight_bookings_aircraft_id ................... [RUN]
+[0m15:45:45  32 of 47 PASS not_null_fct_flight_bookings_aircraft_id ......................... [[32mPASS[0m in 0.02s]
+[0m15:45:45  33 of 47 START test not_null_fct_flight_bookings_airline_id .................... [RUN]
+[0m15:45:45  33 of 47 PASS not_null_fct_flight_bookings_airline_id .......................... [[32mPASS[0m in 0.03s]
+[0m15:45:45  34 of 47 START test not_null_fct_flight_bookings_arrival_airport ............... [RUN]
+[0m15:45:45  34 of 47 PASS not_null_fct_flight_bookings_arrival_airport ..................... [[32mPASS[0m in 0.07s]
+[0m15:45:45  35 of 47 START test not_null_fct_flight_bookings_dd_flight_booking_id .......... [RUN]
+[0m15:45:45  35 of 47 PASS not_null_fct_flight_bookings_dd_flight_booking_id ................ [[32mPASS[0m in 0.03s]
+[0m15:45:45  36 of 47 START test not_null_fct_flight_bookings_dd_trip_id .................... [RUN]
+[0m15:45:45  36 of 47 PASS not_null_fct_flight_bookings_dd_trip_id .......................... [[32mPASS[0m in 0.03s]
+[0m15:45:45  37 of 47 START test not_null_fct_flight_bookings_departure_airport ............. [RUN]
+[0m15:45:45  37 of 47 PASS not_null_fct_flight_bookings_departure_airport ................... [[32mPASS[0m in 0.03s]
+[0m15:45:45  38 of 47 START test not_null_fct_flight_bookings_departure_date ................ [RUN]
+[0m15:45:45  38 of 47 PASS not_null_fct_flight_bookings_departure_date ...................... [[32mPASS[0m in 0.03s]
+[0m15:45:45  39 of 47 START test not_null_fct_flight_bookings_flight_booking_date ........... [RUN]
+[0m15:45:45  39 of 47 PASS not_null_fct_flight_bookings_flight_booking_date ................. [[32mPASS[0m in 0.03s]
+[0m15:45:45  40 of 47 START test not_null_fct_flight_bookings_sk_flight_booking_id .......... [RUN]
+[0m15:45:45  40 of 47 PASS not_null_fct_flight_bookings_sk_flight_booking_id ................ [[32mPASS[0m in 0.03s]
+[0m15:45:45  41 of 47 START test not_null_fct_hotel_bookings_check_in_date .................. [RUN]
+[0m15:45:45  41 of 47 PASS not_null_fct_hotel_bookings_check_in_date ........................ [[32mPASS[0m in 0.03s]
+[0m15:45:45  42 of 47 START test not_null_fct_hotel_bookings_check_out_date ................. [RUN]
+[0m15:45:45  42 of 47 PASS not_null_fct_hotel_bookings_check_out_date ....................... [[32mPASS[0m in 0.02s]
+[0m15:45:45  43 of 47 START test not_null_fct_hotel_bookings_dd_hotel_booking_id ............ [RUN]
+[0m15:45:45  43 of 47 PASS not_null_fct_hotel_bookings_dd_hotel_booking_id .................. [[32mPASS[0m in 0.03s]
+[0m15:45:45  44 of 47 START test not_null_fct_hotel_bookings_dd_trip_id ..................... [RUN]
+[0m15:45:45  44 of 47 PASS not_null_fct_hotel_bookings_dd_trip_id ........................... [[32mPASS[0m in 0.02s]
+[0m15:45:45  45 of 47 START test not_null_fct_hotel_bookings_hotel_booking_date ............. [RUN]
+[0m15:45:45  45 of 47 PASS not_null_fct_hotel_bookings_hotel_booking_date ................... [[32mPASS[0m in 0.03s]
+[0m15:45:45  46 of 47 START test not_null_fct_hotel_bookings_hotel_id ....................... [RUN]
+[0m15:45:45  46 of 47 PASS not_null_fct_hotel_bookings_hotel_id ............................. [[32mPASS[0m in 0.03s]
+[0m15:45:45  47 of 47 START test not_null_fct_hotel_bookings_sk_hotel_booking_id ............ [RUN]
+[0m15:45:45  47 of 47 PASS not_null_fct_hotel_bookings_sk_hotel_booking_id .................. [[32mPASS[0m in 0.02s]
+[0m15:45:45  
+[0m15:45:45  Running dbt Constraints
+[0m15:45:45  Creating not null constraint for: nk_aircraft_id in "pactravel-dwh"."pactravel_final"."dim_aircrafts"
+[0m15:45:45  Creating not null constraint for: sk_aircraft_id in "pactravel-dwh"."pactravel_final"."dim_aircrafts"
+[0m15:45:45  Creating not null constraint for: nk_airline_id in "pactravel-dwh"."pactravel_final"."dim_airlines"
+[0m15:45:45  Creating not null constraint for: sk_airline_id in "pactravel-dwh"."pactravel_final"."dim_airlines"
+[0m15:45:45  Creating not null constraint for: nk_airport_id in "pactravel-dwh"."pactravel_final"."dim_airports"
+[0m15:45:45  Creating not null constraint for: sk_airport_id in "pactravel-dwh"."pactravel_final"."dim_airports"
+[0m15:45:45  Creating not null constraint for: nk_customer_id in "pactravel-dwh"."pactravel_final"."dim_customers"
+[0m15:45:45  Creating not null constraint for: sk_customer_id in "pactravel-dwh"."pactravel_final"."dim_customers"
+[0m15:45:46  Creating not null constraint for: date_id in "pactravel-dwh"."pactravel_final"."dim_date"
+[0m15:45:46  Creating not null constraint for: nk_hotel_id in "pactravel-dwh"."pactravel_final"."dim_hotel"
+[0m15:45:46  Creating not null constraint for: sk_hotel_id in "pactravel-dwh"."pactravel_final"."dim_hotel"
+[0m15:45:46  Creating not null constraint for: booking_date in "pactravel-dwh"."pactravel_final"."fct_daily_revenue"
+[0m15:45:46  Creating not null constraint for: aircraft_id in "pactravel-dwh"."pactravel_final"."fct_flight_bookings"
+[0m15:45:46  Creating not null constraint for: airline_id in "pactravel-dwh"."pactravel_final"."fct_flight_bookings"
+[0m15:45:46  Creating not null constraint for: arrival_airport in "pactravel-dwh"."pactravel_final"."fct_flight_bookings"
+[0m15:45:46  Creating not null constraint for: dd_flight_booking_id in "pactravel-dwh"."pactravel_final"."fct_flight_bookings"
+[0m15:45:46  Creating not null constraint for: dd_trip_id in "pactravel-dwh"."pactravel_final"."fct_flight_bookings"
+[0m15:45:46  Creating not null constraint for: departure_airport in "pactravel-dwh"."pactravel_final"."fct_flight_bookings"
+[0m15:45:46  Creating not null constraint for: departure_date in "pactravel-dwh"."pactravel_final"."fct_flight_bookings"
+[0m15:45:46  Creating not null constraint for: flight_booking_date in "pactravel-dwh"."pactravel_final"."fct_flight_bookings"
+[0m15:45:46  Creating not null constraint for: sk_flight_booking_id in "pactravel-dwh"."pactravel_final"."fct_flight_bookings"
+[0m15:45:46  Creating not null constraint for: check_in_date in "pactravel-dwh"."pactravel_final"."fct_hotel_bookings"
+[0m15:45:46  Creating not null constraint for: check_out_date in "pactravel-dwh"."pactravel_final"."fct_hotel_bookings"
+[0m15:45:46  Creating not null constraint for: dd_hotel_booking_id in "pactravel-dwh"."pactravel_final"."fct_hotel_bookings"
+[0m15:45:46  Creating not null constraint for: dd_trip_id in "pactravel-dwh"."pactravel_final"."fct_hotel_bookings"
+[0m15:45:46  Creating not null constraint for: hotel_booking_date in "pactravel-dwh"."pactravel_final"."fct_hotel_bookings"
+[0m15:45:46  Creating not null constraint for: hotel_id in "pactravel-dwh"."pactravel_final"."fct_hotel_bookings"
+[0m15:45:46  Creating not null constraint for: sk_hotel_booking_id in "pactravel-dwh"."pactravel_final"."fct_hotel_bookings"
+[0m15:45:46  Creating not null constraint for: sk_aircraft_id in "pactravel-dwh"."pactravel_final"."dim_aircrafts"
+[0m15:45:46  Creating primary key: DIM_AIRCRAFTS_SK_AIRCRAFT_ID_PK
+[0m15:45:46  Creating not null constraint for: sk_airline_id in "pactravel-dwh"."pactravel_final"."dim_airlines"
+[0m15:45:46  Creating primary key: DIM_AIRLINES_SK_AIRLINE_ID_PK
+[0m15:45:46  Creating not null constraint for: sk_airport_id in "pactravel-dwh"."pactravel_final"."dim_airports"
+[0m15:45:46  Creating primary key: DIM_AIRPORTS_SK_AIRPORT_ID_PK
+[0m15:45:46  Creating not null constraint for: sk_customer_id in "pactravel-dwh"."pactravel_final"."dim_customers"
+[0m15:45:46  Creating primary key: DIM_CUSTOMERS_SK_CUSTOMER_ID_PK
+[0m15:45:46  Creating not null constraint for: date_id in "pactravel-dwh"."pactravel_final"."dim_date"
+[0m15:45:46  Creating primary key: DIM_DATE_DATE_ID_PK
+[0m15:45:46  Creating not null constraint for: sk_hotel_id in "pactravel-dwh"."pactravel_final"."dim_hotel"
+[0m15:45:46  Creating primary key: DIM_HOTEL_SK_HOTEL_ID_PK
+[0m15:45:46  Creating not null constraint for: sk_flight_booking_id in "pactravel-dwh"."pactravel_final"."fct_flight_bookings"
+[0m15:45:46  Creating primary key: FCT_FLIGHT_BOOKINGS_SK_FLIGHT_BOOKING_ID_PK
+[0m15:45:46  Creating not null constraint for: sk_hotel_booking_id in "pactravel-dwh"."pactravel_final"."fct_hotel_bookings"
+[0m15:45:46  Creating primary key: FCT_HOTEL_BOOKINGS_SK_HOTEL_BOOKING_ID_PK
+[0m15:45:46  Skipping FCT_DAILY_REVENUE_BOOKING_DATE_FK because a PK/UK was not found on the PK table: "pactravel-dwh"."pactravel_final"."dim_date" ['date_actual']
+[0m15:45:46  Skipping FCT_FLIGHT_BOOKINGS_AIRCRAFT_ID_FK because a PK/UK was not found on the PK table: "pactravel-dwh"."pactravel_final"."dim_aircrafts" ['nk_aircraft_id']
+[0m15:45:46  Skipping FCT_FLIGHT_BOOKINGS_AIRLINE_ID_FK because a PK/UK was not found on the PK table: "pactravel-dwh"."pactravel_final"."dim_airlines" ['nk_airline_id']
+[0m15:45:46  Skipping FCT_FLIGHT_BOOKINGS_ARRIVAL_AIRPORT_FK because a PK/UK was not found on the PK table: "pactravel-dwh"."pactravel_final"."dim_airports" ['airport_name']
+[0m15:45:46  Skipping FCT_FLIGHT_BOOKINGS_DEPARTURE_AIRPORT_FK because a PK/UK was not found on the PK table: "pactravel-dwh"."pactravel_final"."dim_airports" ['airport_name']
+[0m15:45:46  Skipping FCT_FLIGHT_BOOKINGS_DEPARTURE_DATE_FK because a PK/UK was not found on the PK table: "pactravel-dwh"."pactravel_final"."dim_date" ['date_actual']
+[0m15:45:46  Skipping FCT_FLIGHT_BOOKINGS_FLIGHT_BOOKING_DATE_FK because a PK/UK was not found on the PK table: "pactravel-dwh"."pactravel_final"."dim_date" ['date_actual']
+[0m15:45:46  Skipping FCT_HOTEL_BOOKINGS_CHECK_IN_DATE_FK because a PK/UK was not found on the PK table: "pactravel-dwh"."pactravel_final"."dim_date" ['date_actual']
+[0m15:45:46  Skipping FCT_HOTEL_BOOKINGS_CHECK_OUT_DATE_FK because a PK/UK was not found on the PK table: "pactravel-dwh"."pactravel_final"."dim_date" ['date_actual']
+[0m15:45:46  Skipping FCT_HOTEL_BOOKINGS_HOTEL_BOOKING_DATE_FK because a PK/UK was not found on the PK table: "pactravel-dwh"."pactravel_final"."dim_date" ['date_actual']
+[0m15:45:46  Skipping FCT_HOTEL_BOOKINGS_HOTEL_ID_FK because a PK/UK was not found on the PK table: "pactravel-dwh"."pactravel_final"."dim_hotel" ['nk_hotel_id']
+[0m15:45:46  Finished dbt Constraints
+[0m15:45:46  1 of 1 START hook: dbt_constraints.on-run-end.0 ................................ [RUN]
+[0m15:45:46  1 of 1 OK hook: dbt_constraints.on-run-end.0 ................................... [[32mOK[0m in 0.87s]
+[0m15:45:46  
+[0m15:45:46  Finished running 1 project hook, 47 data tests in 0 hours 0 minutes and 2.50 seconds (2.50s).
+[0m15:45:46  
+[0m15:45:46  [32mCompleted successfully[0m
+[0m15:45:46  
+[0m15:45:46  Done. PASS=48 WARN=0 ERROR=0 SKIP=0 TOTAL=48
+2024-11-12 22:45:48,091 - INFO - Transform to All Dimensions and Fact Tables - SUCCESS!
+2024-11-12 22:45:48,091 - INFO - ==================================ENDING TRANSFROM DATA=======================================
+2024-11-12 22:45:48,091 - INFO - [pid 46073] Worker Worker(salt=4202940784, workers=1, host=LAPTOP-E1BGNT67, username=ricofebrian, pid=46073) done      Transform()
+2024-11-12 22:45:48,092 - DEBUG - 1 running tasks, waiting for next task to finish
+2024-11-12 22:45:48,095 - INFO - Informed scheduler that task   Transform__99914b932b   has status   DONE
+2024-11-12 22:45:48,095 - DEBUG - Asking scheduler for work...
+2024-11-12 22:45:48,097 - DEBUG - Done
+2024-11-12 22:45:48,097 - DEBUG - There are no more tasks to run at this time
+2024-11-12 22:45:48,097 - INFO - Worker Worker(salt=4202940784, workers=1, host=LAPTOP-E1BGNT67, username=ricofebrian, pid=46073) was stopped. Shutting down Keep-Alive thread
+2024-11-12 22:45:48,098 - INFO - 
+===== Luigi Execution Summary =====
+
+Scheduled 3 tasks of which:
+* 3 ran successfully:
+    - 1 Extract()
+    - 1 Load()
+    - 1 Transform()
+
+This progress looks :) because there were no failed tasks or missing dependencies
+
+===== Luigi Execution Summary =====
+
