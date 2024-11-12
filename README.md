@@ -2,7 +2,7 @@
 
 Hi there! Welcome to my learning logs.
 
-**In this guide, I will share how I developed an ELT pipeline for an e-travel booking business based on a case study**. For the full story about the case study and how I designed the data warehouse, you can check out my article on Medium here: [full-story](https://medium.com/@ricofebrian731/learning-data-engineering-designing-a-data-warehouse-and-building-an-elt-pipeline-for-e-commerce-1f6b77cdfc28).
+**In this guide, I will share how I developed an ELT pipeline for an e-travel booking business based on a case study**. For the full story about the case study and how I designed the data warehouse, you can check out my article on Medium here: [full-story](https://medium.com/@ricofebrian731/learning-data-engineering-designing-a-data-warehouse-and-implementing-an-elt-with-dbt-and-luigi-404f357ef36c).
 
 **In this repository, I’ll focus specifically on how I developed the ELT pipeline, including:**
 - Developing the ELT script
@@ -47,20 +47,26 @@ Alright, let's begin!, Here's the step-by-step guide:
 
 # Preparations
 
-## - **Clone or download this repository to get the populated data for the source database**
+## - **Get the populated data source**
+
+Clone or download this repository to get the populated data for the source database.
 
   ```
   git lfs clone git@github.com:Kurikulum-Sekolah-Pacmann/dataset-olist.git
   ```
 
-## - **Create and activate python environment to isolate project dependencies**
+## - **Setup project environment**
+
+Create and activate python environment to isolate project dependencies.
   
   ```
   python -m venv your_project_name         
   source your_project_name/bin/activate    # On Windows: your_project_name\Scripts\activate
   ```
   
-## - **Set up a directory structure to organize all project scripts**
+## - **Set up a directory structure**
+
+  Set up your project directory structure to organize all project scripts.
   
   ```
   project/
@@ -92,13 +98,18 @@ Alright, let's begin!, Here's the step-by-step guide:
   
 **Note: You can install libraries as needed while developing the code. However, once complete, make sure to generate a _requirements.txt_ file listing all dependencies**.
 
-## - **Create _.env_ file to store all credential information**
+## - **Create _.env_ file**
+
+Create .env file to store all credential information.
   
   ```
   touch .env
   ```
   
-## - **Set up a Sentry project to receive an e-mail notifications in case of any errors in the pipeline**
+## - **Set up Sentry for alerting**
+
+Set up a Sentry project to receive an e-mail notifications in case of any errors in the pipeline.
+
   - Open and signup to: https://www.sentry.io 
   - Create Project :
     - Select Platform : Python
@@ -112,7 +123,7 @@ Alright, let's begin!, Here's the step-by-step guide:
 
 ## - Setup database
 
-  - Create a [_docker-compose.yml_](https://github.com/Rico-febrian/elt-dwh-pactravel/blob/main/docker-compose.yaml) file to set up both the data source and data warehouse databases
+  - Create a [_docker-compose.yml_](https://github.com/Rico-febrian/elt-dwh-for-online-travel-booking-business/blob/main/docker-compose.yaml) file to set up both the data source and data warehouse databases.
   
   - Store database credentials in _.env_ file  
 
@@ -149,19 +160,19 @@ Alright, let's begin!, Here's the step-by-step guide:
 
   **This utility function acts like a basic tool you can use repeatedly when building the pipeline script.**
 
-  -  [Database connector]()
+  -  [Database connector](https://github.com/Rico-febrian/elt-dwh-for-online-travel-booking-business/blob/main/pipeline/utils_function/db_connector.py)
       -  Function to connect python and the database    
   
-  -  [Read SQL file]()
+  -  [Read SQL file](https://github.com/Rico-febrian/elt-dwh-for-online-travel-booking-business/blob/main/pipeline/utils_function/read_sql.py)
       -  Function to read the SQL query files and return it as string so python can run it 
   
-  - [Concat DataFrame summary - Optional]()
+  - [Concat DataFrame summary - Optional](https://github.com/Rico-febrian/elt-dwh-for-online-travel-booking-business/blob/main/pipeline/utils_function/concat_df.py)
       - Function to merge the summary data from ELT pipeline
 
-  - [Copy log - Optional]()
+  - [Copy log - Optional](https://github.com/Rico-febrian/elt-dwh-for-online-travel-booking-business/blob/main/pipeline/utils_function/copy_log.py)
       - Function to copy temporary log into main log
 
-  - [Delete temporary data - Optional]()
+  - [Delete temporary data - Optional](https://github.com/Rico-febrian/elt-dwh-for-online-travel-booking-business/blob/main/pipeline/utils_function/delete_temp_data.py)
       - Function to delete all temporary data from ELT pipeline 
 
 ## - Create SQL queries
@@ -171,26 +182,26 @@ Alright, let's begin!, Here's the step-by-step guide:
 You can view the complete data warehouse design for this project in my Medium article: [Data Warehouse Design]()
 
   - Source database
-    - [init]()
+    - [Populated data source](https://github.com/Rico-febrian/elt-dwh-for-online-travel-booking-business/blob/main/helper/src_data/init.sql)
       
   - Warehouse database
-    - [Public schema]()
+    - [Public schema](https://github.com/Rico-febrian/elt-dwh-for-online-travel-booking-business/blob/main/helper/dwh_data/dwh-public_schema.sql)
       
-    - [Staging schema]()
+    - [Staging schema](https://github.com/Rico-febrian/elt-dwh-for-online-travel-booking-business/blob/main/helper/dwh_data/dwh-staging_schema.sql)
       
-    - [Final schema]()
+    - [Final schema](https://github.com/Rico-febrian/elt-dwh-for-online-travel-booking-business/blob/main/helper/dwh_data/dwh-final_schema.sql)
       
-    - [Snapshot schema]()
+    - [Snapshot schema](https://github.com/Rico-febrian/elt-dwh-for-online-travel-booking-business/blob/main/helper/dwh_data/dwh-snapshot_schema.sql)
       
 ## - Create EXTRACT and LOAD queries 
 
 **These queries are used to extract and load data from the source database into the public and staging schemas in the warehouse database.**
 
-  - [Extract query]()
+  - [Extract query](https://github.com/Rico-febrian/elt-dwh-for-online-travel-booking-business/tree/main/pipeline/src_query/extract)
     - This query used to:
       - Extract data from source database into data warehouse's public schema
   
-  - [Load queries]()
+  - [Load queries](https://github.com/Rico-febrian/elt-dwh-for-online-travel-booking-business/tree/main/pipeline/src_query/load)
     - This query used to:
       - Load data from public to staging schema
       - Handle updated data in each table within staging schema
@@ -222,7 +233,7 @@ You can view the complete data warehouse design for this project in my Medium ar
       schema: [YOUR DATABASE SCHEMA NAME]
       threads (1 or more): [SET TO THE LOWEST VALUE IF YOUR PC SLOW] 
       ```
-    After initiating the project, a new directory will be created in your root project directory, like this: [dbt](https://github.com/Rico-febrian/elt-dwh-pactravel/tree/main/pactravel_dbt)
+    After initiating the project, a new directory will be created in your root project directory, like this: [dbt](https://github.com/Rico-febrian/elt-dwh-for-online-travel-booking-business/tree/main/pactravel_dbt)
 
 - Create DBT model
   
@@ -230,11 +241,11 @@ You can view the complete data warehouse design for this project in my Medium ar
       
         - Set the materialization strategy and timezone
           
-          Update your dbt_project.yml file inside the DBT project directory to look like this: [dbt_project.yml]()
+          Update your dbt_project.yml file inside the DBT project directory to look like this: [dbt_project.yml](https://github.com/Rico-febrian/elt-dwh-for-online-travel-booking-business/blob/main/pactravel_dbt/dbt_project.yml)
   
         - Set up the required packages
           
-          Create a packages.yml file inside your DBT project directory and define the required packages: [packages.yml]()
+          Create a packages.yml file inside your DBT project directory and define the required packages: [packages.yml](https://github.com/Rico-febrian/elt-dwh-for-online-travel-booking-business/blob/main/pactravel_dbt/packages.yml)
           
     - Build staging layer model
       
@@ -256,7 +267,7 @@ You can view the complete data warehouse design for this project in my Medium ar
            
            **NOTE: Create the source configuration first, as it is used to reference the selected schema in your data warehouse**
 
-          Check here for the [complete staging layer configuration]()
+          Check here for the [complete staging layer models](https://github.com/Rico-febrian/elt-dwh-for-online-travel-booking-business/tree/main/pactravel_dbt/models/staging)
 
         - Create a date/time dimension using a seed file
             - Download the date dimension CSV file here: [dim_date.csv](https://drive.google.com/file/d/1D1HVjFBHotwC4cWSxBebZTBb62aMQs6d/view)
@@ -285,11 +296,11 @@ You can view the complete data warehouse design for this project in my Medium ar
      
           **NOTE: The core models configuration is used to create constraints and perform data quality testing.**
 
-          Check here for the [complete marts layer configuration]()
+          Check here for the [complete marts layer models](https://github.com/Rico-febrian/elt-dwh-for-online-travel-booking-business/tree/main/pactravel_dbt/models/marts/core)
 
     - Create Snapshot
 
-      In this project, I used DBT snapshots **to track and store data changes over time**. These snapshots are based on the **Slowly Changing Dimension (SCD) strategy** defined during the data warehouse design. Check here for the [complete snapshot configuration]()
+      In this project, I used DBT snapshots **to track and store data changes over time**. These snapshots are based on the **Slowly Changing Dimension (SCD) strategy** defined during the data warehouse design. Check here for the [complete snapshot configuration](https://github.com/Rico-febrian/elt-dwh-for-online-travel-booking-business/tree/main/pactravel_dbt/snapshots)
 
 ---
 
@@ -303,7 +314,7 @@ dbt debug    # Checks the database connection and the current DBT environment
 dbt deps     # Install the DBT packages specified
 ```
 
-Then, run these commands sequentially to compile all the models:
+Then, **run these commands sequentially** to compile all the models:
 
 ```
 dbt seed     # loads the specified CSV files into your data warehouse
@@ -377,20 +388,20 @@ I developed each task separately to ensure everything function properly.
   
 - Main pipeline task
   
-  - [Extract task]()
+  - [Extract task](https://github.com/Rico-febrian/elt-dwh-for-online-travel-booking-business/blob/main/pipeline/extract.py)
     - This task will **pulls data from the source database** and **loads it into the public schema** in the warehouse database
     - Task outputs include:
       - CSV files for each extracted table
       - Task summary CSV
       - Log file
         
-  - [Load task]()
+  - [Load task](https://github.com/Rico-febrian/elt-dwh-for-online-travel-booking-business/blob/main/pipeline/load.py)
     - This task **reads data from each CSV file generated by the Extract task** and **loads it into the staging schema** in the warehouse database
     - Task outputs include:
       - Task summary CSV
       - Log file
 
-  - [Transform task]()
+  - [Transform task](https://github.com/Rico-febrian/elt-dwh-for-online-travel-booking-business/blob/main/pipeline/transform.py)
     - This task **executes a shell script** to perform data transformations using DBT **by converting DBT commands into a Python script**
     - This outputs include:
       - Task summary CSV
@@ -406,11 +417,11 @@ I developed each task separately to ensure everything function properly.
 - Idempotency Requirement
 - No Built-in Scheduler
 
-For a detailed explanation, you can check the documentation: [Luigi Limitations]()
+For a detailed explanation, you can check the documentation: [Luigi Limitations](https://luigi.readthedocs.io/en/stable/design_and_limitations.html)
 
 ## - Compile all task
 
-Compile all task into a single main script, like this: [main_elt_pipeline.py]()
+Compile all task into a single main script, like this: [main_elt_pipeline.py](https://github.com/Rico-febrian/elt-dwh-for-online-travel-booking-business/blob/main/main_elt_pipeline.py)
 
 ## - Run the ELT pipeline
 
@@ -445,11 +456,11 @@ You can easily check and review the log files and summaries created in each task
 
 - Error log
 
-![Error log](https://github.com/Rico-febrian/elt-dwh-olist-ecommerce/blob/main/assets/log_failed.png)
+![Error log]()
 
 - Error task summary
 
-![Error task summary](https://github.com/Rico-febrian/elt-dwh-olist-ecommerce/blob/main/assets/summary_failed.png)
+![Error task summary](https://github.com/Rico-febrian/elt-dwh-for-online-travel-booking-business/blob/main/assets/failed_summary.png)
 
 ---
 
@@ -461,7 +472,7 @@ Since Luigi doesn't have a built-in scheduler, you can automate the pipeline usi
 
 - Create a cron job to automate pipeline execution.
   
-  - Create shell script [elt_pipeline.sh]()
+  - Create shell script [elt_pipeline.sh](https://github.com/Rico-febrian/elt-dwh-for-online-travel-booking-business/blob/main/elt_pipeline.sh)
     ```
     touch SHELL_SCRIPT_NAME.sh
     ```
@@ -515,23 +526,23 @@ Since Luigi doesn't have a built-in scheduler, you can automate the pipeline usi
 
 - Revenue and total bookings metrics
     - Total daily revenue and booking details
-      ![Metric 1]()
+      ![Metric 1](https://github.com/Rico-febrian/elt-dwh-for-online-travel-booking-business/blob/main/assets/metric_1.png)
        
 - Average ticket price over time metrics
     - Average flight ticket price yearly
-      ![Metric 2]()
+      ![Metric 2](https://github.com/Rico-febrian/elt-dwh-for-online-travel-booking-business/blob/main/assets/metric_2.png)
     
     - Average hotel price yearly
-      ![Metric 3]()
+      ![Metric 3](https://github.com/Rico-febrian/elt-dwh-for-online-travel-booking-business/blob/main/assets/metric_3.png)
 
 ## - Luigi DAG Graph
 
-![Luigi DAG Graph](https://github.com/Rico-febrian/elt-dwh-olist-ecommerce/blob/main/assets/dag_graph.png)
+![Luigi DAG Graph]()
 
 ## - Pipeline Summary
 
-![Luigi DAG Graph]()
+![Pipeline Summary](https://github.com/Rico-febrian/elt-dwh-for-online-travel-booking-business/blob/main/assets/success_summary.png)
 
 ## - Pipeline Log
 
-![Luigi DAG Graph]()
+![Main Log](https://github.com/Rico-febrian/elt-dwh-for-online-travel-booking-business/blob/main/assets/success_log.png)
