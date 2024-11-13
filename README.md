@@ -1,5 +1,7 @@
 # How I Build a Data Warehouse & ELT Pipeline with DTB and Luigi
 
+![ELT Design](https://github.com/Rico-febrian/elt-dwh-for-online-travel-booking-business/blob/main/assets/elt-dwh-dbt-luigi-design.png)
+
 Hi there! Welcome to my learning logs.
 
 **In this guide, I will share how I developed an ELT pipeline for an e-travel booking business based on a case study**. For the full story about the case study and how I designed the data warehouse, you can check out my article on Medium here: [full-story](https://medium.com/@ricofebrian731/learning-data-engineering-designing-a-data-warehouse-and-implementing-an-elt-with-dbt-and-luigi-404f357ef36c).
