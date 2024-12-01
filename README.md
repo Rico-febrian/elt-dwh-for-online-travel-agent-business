@@ -4,7 +4,7 @@
 
 Hi there! Welcome to my learning logs.
 
-**In this guide, I will share how I developed an ELT pipeline based on a designed dimensional model for an online travel agent (OTA) business , using a case study.**.
+**In this guide, I will share how I developed an ELT pipeline based on a designed dimensional model for an online travel agent (OTA) business, using a case study.**
 
 For the full story about the case study and how I designed the data warehouse, you can check out my article on Medium here: [full-story](https://medium.com/@ricofebrian731/learning-data-engineering-designing-a-data-warehouse-and-implementing-an-elt-with-dbt-and-luigi-404f357ef36c).
 
@@ -30,8 +30,7 @@ For the full story about the case study and how I designed the data warehouse, y
 
 Before diving into the main discussion, take a look at the image below. This illustrates the workflow I followed to build this project.
 
-![Pipeline workflow]()
-
+![Pipeline workflow](https://github.com/Rico-febrian/elt-dwh-for-online-travel-agent-business/blob/main/assets/elt_pipeline_workflow_for_pactravel.png)
 
 - ## How the pipeline works
 
@@ -55,13 +54,21 @@ Before diving into the main discussion, take a look at the image below. This ill
 
   This workflow ensures the pipeline remains reliable and well-organized. Some key benefits include:
 
-  - **Raw Data Backup (Archive)**: The public schema keeps a backup of the original data in case it’s needed later.
+  - **Raw Data Backup (Archive)**
 
-  - **Flexibility for Downstream Users**: Different users can access data in its raw or processed form, depending on their needs.
+    The public schema keeps a backup of the original data in case it’s needed later.
 
-  - **Protecting Source Data**: The pipeline reduces the risk of direct access to the source database, preventing unintentional changes.
+  - **Flexibility for Downstream Users**
 
-  - **Preparation for Transformation**: The staging schema acts as a cleaning area, ensuring the data is conflict-free and ready for transformations.
+    Different users can access data in its raw or processed form, depending on their needs.
+
+  - **Protecting Source Data**
+
+    The pipeline reduces the risk of direct access to the source database, preventing unintentional changes.
+
+  - **Preparation for Transformation**
+
+    The staging schema acts as a cleaning area, ensuring the data is conflict-free and ready for transformations.
 
 ---
 ---
@@ -656,12 +663,6 @@ After the Data Warehouse and ELT pipeline were successfully running, I conducted
 
 - ## Luigi DAG Graph
   ![Luigi DAG Graph](https://github.com/Rico-febrian/elt-dwh-for-online-travel-booking-business/blob/main/assets/luigi_dag_graph.png)
-
-- ## Pipeline Summary
-  ![Pipeline Summary](https://github.com/Rico-febrian/elt-dwh-for-online-travel-booking-business/blob/main/assets/success_summary.png)
-
-- ## Pipeline Log
-  ![Main Log](https://github.com/Rico-febrian/elt-dwh-for-online-travel-booking-business/blob/main/assets/success_log.png)
 
 ---
 ---
