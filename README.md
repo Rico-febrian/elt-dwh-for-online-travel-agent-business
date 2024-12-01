@@ -1,6 +1,6 @@
 # How I Built a Data Warehouse & ELT Pipeline with DBT and Luigi
 
-![ELT Design](https://github.com/Rico-febrian/elt-dwh-for-online-travel-agent-business/blob/main/assets/elt_pipeline_design_for_pactravel.png)
+![Title](https://github.com/Rico-febrian/elt-dwh-for-online-travel-agent-business/blob/main/assets/title.png)
 
 Hi there! Welcome to my learning logs.
 
@@ -30,7 +30,7 @@ For the full story about the case study and how I designed the data warehouse, y
 
 Before diving into the main discussion, take a look at the image below. This illustrates the workflow I followed to build this project.
 
-![Pipeline workflow](https://github.com/Rico-febrian/elt-dwh-for-online-travel-agent-business/blob/main/assets/elt_pipeline_workflow_for_pactravel.png)
+![ELT Design](https://github.com/Rico-febrian/elt-dwh-for-online-travel-agent-business/blob/main/assets/elt_pipeline_design_for_pactravel.png)
 
 - ## How the pipeline works
 
@@ -44,6 +44,12 @@ Before diving into the main discussion, take a look at the image below. This ill
   
     - **Staging Schema**: A processed version of the raw data from the public schema. In this schema, I set up a configuration to handle new or updated data from the source database and make sure there are no duplicates or conflicts.
 
+  - ### Transform Task
+
+    The Transform Task performs data transformations based on the design of the data warehouse. The transformations are done using DBT (Data Build Tool), which helps organize and automate the data processing steps.
+
+    In this step, the raw data from the staging schema is processed and transformed to match the structure and requirements of the data warehouse. Once transformed, the data is loaded into the final schema, which is used by business users for analysis and reporting.
+      
 - ## What’s the difference between the public and staging schemas?
 
   - The public schema is like a storage space for raw data, keeping an exact copy of what’s in the source database.
